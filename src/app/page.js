@@ -57,23 +57,23 @@ export default function Home() {
         {/* <h1 className="font-bold font-outfit text-[2rem] absolute top-5 left-5 gradient-text">
           TahaAI
         </h1> */}
-        <Image src={Water} alt="logo" className="m-4 absolute top-0 left-5 rounded-full" width={50} height={50}/>
+        <Image src={Water} alt="logo" className="absolute top-0 left-5 m-4 rounded-full" width={50} height={50}/>
         {filePath ? (
           <object 
             className="pdf" 
             data={`http://127.0.0.1:5000/uploads/${filePath}`} 
             width="600" 
-            height="500">
-          </object>
+            title={filePath}
+            height="500"/>
         ) : (
           <div className="flex flex-col items-center justify-center gap-10 w-[60%] h-[90vh]">
             <label
               htmlFor="dropzone-file"
-              className="flex flex-col items-center justify-center w-full h-64 border-2 border-slate-400 border-dashed rounded-lg cursor-pointer bg-slate-800  hover:border-blue-300"
+              className="flex flex-col justify-center items-center w-full h-64 rounded-lg border-2 border-dashed cursor-pointer border-slate-400 bg-slate-800 hover:border-blue-300"
             >
-              <div className="flex flex-col items-center justify-center pt-5 pb-6">
+              <div className="flex flex-col justify-center items-center pt-5 pb-6">
                 <svg
-                  className="w-8 h-8 mb-4 text-gray-300 hover:text-gray-600"
+                  className="mb-4 w-8 h-8 text-gray-300 hover:text-gray-600"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -102,8 +102,9 @@ export default function Home() {
               />
             </label>
             <button
-              className="font-semibold text-white bg-transparent border-2 border-slate-400 hover:border-slate-300 py-3 px-5 rounded-md"
+              className="px-5 py-3 font-semibold text-white bg-transparent rounded-md border-2 border-slate-400 hover:border-slate-300"
               onClick={handleSubmit}
+              type="button"
             >
               {loading ? "Uploading..." : "Submit"}
             </button>
